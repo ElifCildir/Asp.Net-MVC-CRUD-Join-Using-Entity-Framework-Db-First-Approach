@@ -1,0 +1,62 @@
+﻿@model IEnumerable<WebApplicationLibrary.Models.Activity>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Kitap Adına Göre İşlem Ara</h2>
+
+@using (Html.BeginForm("Search", "Activities"))
+
+{
+    <p>Aranacak değeri giriniz</p>
+
+    @Html.TextBox("x")
+
+    <input type="submit" value="Ara" />
+
+
+
+
+}
+
+<br />
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+
+            <th>İşlemNo</th>
+            <th>Öğrenci Adı</th>
+            <th>Kitap Adı</th>
+            <th>Veriliş Tarihi</th>
+            <th>Son Teslim Tarihi</th>
+            <th>Teslim Alınan Tarih</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var activity in Model)
+        {
+
+            <tr>
+                <td>@activity.ActivityID</td>
+                <td>@activity.Student.NameSurname</td>
+                <td>@activity.Book.BookTitle</td>
+                <td>@activity.PickUpDate.Value.Date </td>
+                <td>@activity.DueDate.Value.Date</td>
+                <td>@activity.ReturnDate.Value.Date</td>
+
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+<br />
+@Html.ActionLink("Geri Dön", "Index", null, new { @class = "btn btn-secondary" })

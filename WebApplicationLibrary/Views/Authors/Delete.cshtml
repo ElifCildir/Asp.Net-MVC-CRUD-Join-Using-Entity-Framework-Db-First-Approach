@@ -1,0 +1,36 @@
+﻿@model WebApplicationLibrary.Models.Author
+
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Yazar Sil</h2>
+<hr />
+
+<h5>Bu Yazarı Silmek İstediğinizden Emin misiniz?</h5>
+
+<div>
+
+
+
+    <dl class="dl-horizontal">
+        <dt>Yazar No</dt>
+        <dd>@Html.DisplayFor(model => model.AuthorID)</dd>
+        <dt>Yazar Adı</dt>
+        <dd>@Html.DisplayFor(model => model.AuthorNameSurname)</dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        <input type="submit" value="Sil" class="btn btn-danger" />
+        @Html.ActionLink("Geri Dön", "Index", null, new { @class = "btn btn-secondary" })
+
+    }
+
+</div>
+
+
+

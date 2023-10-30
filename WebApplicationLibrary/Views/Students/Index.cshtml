@@ -1,0 +1,64 @@
+﻿@model IEnumerable<WebApplicationLibrary.Models.Student>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Öğrenciler</h2>
+<hr />
+
+@Html.ActionLink("Yeni Öğrenci", "Create", null, new {@class="btn btn-success"})
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Adı Soyadı</th>
+            <th>Doğum Tarihi</th>
+            <th>Cinsiyet</th>
+            <th>Sınıf</th>
+            <th>Adres</th>
+            <th>Telefon</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var student in Model)
+            {
+               <tr>
+                   <td>@student.NameSurname</td>
+                   <td>@student.DateOfBirth.Value.Date</td>
+                   <td>
+                       @if (@student.Gender == true)
+                       {
+                           <span>Kadın</span>
+
+                       }
+                       else
+                       {
+                           <span>Erkek</span>
+                       }
+
+
+                   </td>
+                   <td>@student.Class</td>
+                   <td>@student.Address</td>
+                   <td>@student.Phone</td>
+                   <td>
+                       @Html.ActionLink("Düzenle", "Edit", new { id = student.StudentID }, new { @class = "btn btn-warning" }) |
+                       @Html.ActionLink("Sil", "Delete", new { id = student.StudentID }, new { @class = "btn btn-danger" })
+
+                   </td>
+
+               </tr>
+
+             
+
+
+
+
+
+            }
+
+    </tbody>
+
+</table>

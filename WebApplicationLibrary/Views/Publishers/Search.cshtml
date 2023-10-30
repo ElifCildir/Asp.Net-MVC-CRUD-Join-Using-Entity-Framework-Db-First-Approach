@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WebApplicationLibrary.Models.Publisher>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Yayıncı Ara</h2>
+<br />
+
+@using (Html.BeginForm())
+{
+
+
+    @Html.TextBox("x")
+
+    <input type="submit" value="ara" />
+
+
+}
+
+
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.PublisherName)
+        </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublisherName)
+            </td>
+
+        </tr>
+    }
+
+</table>
+<br />
+
+@Html.ActionLink("Geri Dön", "Index", null, new { @class = "btn btn-secondary" })
+
+

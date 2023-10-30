@@ -1,0 +1,65 @@
+﻿@model IEnumerable < WebApplicationLibrary.Models.ActStudent>
+
+
+
+
+@{
+    ViewBag.Title = "ActStudent";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>İşlemler, Kitaplar, Öğrenciler Birleştirilmiş Tablo  </h2>
+<br />
+
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th>KitapID</th>
+            <th>Kitap Adı</th>
+            <th>Son Teslim Tarihi</th>
+            <th>Öğrenci no</th>
+            <th>AdSoyad</th>
+            <th>Sınıf</th>
+            <th>Phone</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+
+                <td>
+                    @item.BookID
+                </td>
+
+                <td>
+                    @item.BookTitle
+                </td>
+
+                <td>
+                    @item.Duedate
+                </td>
+                <td>
+                    @item.StudentID
+                </td>
+                <td>
+                    @item.NameSurname
+                </td>
+                <td>
+                    @item.Class
+                </td>
+                <td>
+                    @item.Phone
+                </td>
+            </tr>
+
+        }
+
+
+        </tbody>
+</table>

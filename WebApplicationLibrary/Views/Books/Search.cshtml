@@ -1,0 +1,76 @@
+﻿@model IEnumerable<WebApplicationLibrary.Models.Book>
+
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Arama Ekranı</h2>
+<hr />
+
+
+
+@using (Html.BeginForm())
+{
+    <p>Kitap Adı Giriniz</p>
+
+    @Html.TextBox("x")
+
+    <input type="submit" value="ara" />
+
+
+}
+
+<br />
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th>Kitap Adı</th>
+            <th>Tür</th>
+            <th>Basım Yılı</th>
+            <th>Yazar</th>
+            <th>Yayınevi</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+        @foreach (var book in Model)
+        {
+
+            <tr>
+
+                <td>
+                    @book.BookTitle
+                </td>
+
+                <td>@book.Subject</td>
+                <td>@book.YearPublished</td>
+                <td>@book.Author.AuthorNameSurname</td>
+                <td>@book.Publisher.PublisherName</td>
+
+
+
+            </tr>
+
+        }
+
+
+
+    </tbody>
+</table>
+
+<br />
+
+
+@using (Html.BeginForm())
+{
+
+
+    @Html.ActionLink("Geri Dön", "Index", null, new { @class = "btn btn-secondary" })
+
+}

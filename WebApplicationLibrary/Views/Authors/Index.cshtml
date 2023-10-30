@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebApplicationLibrary.Models.Author>
+
+
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Yazarlar</h2>
+<br />
+
+@Html.ActionLink("Yeni", "Create",null, new {@class="btn btn-success"})
+@Html.ActionLink("Ara","Search",null, new {@class="btn btn-primary"})
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+
+            <th>Yazar No</th>
+            <th>Yazar Adı Soyadı</th>
+
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+
+        @foreach (var author in Model)
+        {
+            <tr>
+
+                <td>@author.AuthorID</td>
+                <td>@author.AuthorNameSurname</td>
+
+                <td>
+              
+                @Html.ActionLink("Düzenle" , "Edit", new {id=author.AuthorID}, new {@class="btn btn-warning"})
+                @Html.ActionLink("Sil", "Delete", new { id = author.AuthorID }, new {@class="btn btn-danger"})
+
+
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>

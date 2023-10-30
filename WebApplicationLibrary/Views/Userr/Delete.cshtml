@@ -1,0 +1,65 @@
+﻿@model WebApplicationLibrary.Models.Userr
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Kullanıcı Sil</h2>
+
+<h3>Kullanıcıyı Silmek istediğinizden emin misiniz?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+          Adı Soyadı
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserrNameSurname)
+        </dd>
+
+        <dt>
+          Email Adres
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserrEmail)
+        </dd>
+
+        <dt>
+          Telefon
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserrPhone)
+        </dd>
+
+        <dt>
+        Rol
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserrType)
+        </dd>
+
+        <dt>
+           Şifre
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="Sil" class="btn btn-danger" /> |
+    @Html.ActionLink("Geri Dön", "Index", null, new { @class = "btn btn-secondary" })
+</div>
+    }
+</div>

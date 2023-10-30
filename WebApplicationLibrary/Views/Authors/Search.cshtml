@@ -1,0 +1,44 @@
+﻿@model IEnumerable<WebApplicationLibrary.Models.Author>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Yazar Ara</h2>
+
+
+@using (Html.BeginForm())
+{
+    <p>Yazar adı giriniz</p>
+
+    @Html.TextBox("x")
+
+    <input type="submit" value="ara" />
+
+
+}
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.AuthorNameSurname)*@
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorNameSurname)
+            </td>
+
+        </tr>
+    }
+
+</table>
+<br />
+@Html.ActionLink("Geri Dön", "Index", null, new { @class = "btn btn-secondary" })

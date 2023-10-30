@@ -1,0 +1,61 @@
+﻿@model IEnumerable<WebApplicationLibrary.Models.Activity>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>İşlemler Sayfası</h2>
+<br />
+@Html.ActionLink("Yeni İşlem", "New", null, new {@class="btn btn-success"})
+
+@Html.ActionLink("Ara", "Search",null,new {@class="btn btn-primary" } ) 
+
+
+
+
+<br/>
+
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+
+            <th>İşlemNo</th>
+            <th>Öğrenci Adı</th>
+            <th>Kitap Adı</th>
+            <th>Veriliş Tarihi</th>
+            <th>Son Teslim Tarihi</th>
+            <th>Teslim Alınan Tarih</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+      
+        @foreach(var activity in Model)
+            {
+
+            <tr>
+            <td>@activity.ActivityID</td>
+            <td>@activity.Student.NameSurname</td>
+            <td>@activity.Book.BookTitle</td>
+            <td>@activity.PickUpDate.Value.Date </td>
+            <td>@activity.DueDate.Value.Date</td>
+            <td>@activity.ReturnDate.Value.Date</td>
+
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = activity.ActivityID }, new {@class="btn btn-warning"}) |
+                @Html.ActionLink("Sil","Delete", new { id = activity.ActivityID }, new {@class="btn btn-danger"})
+
+
+            </td>
+
+            </tr>
+            }
+
+    </tbody>
+
+</table>

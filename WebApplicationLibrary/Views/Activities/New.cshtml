@@ -1,0 +1,76 @@
+﻿@model WebApplicationLibrary.Models.Activity
+
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Yeni İşlem Ekle</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+
+   
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StudentID, "Öğrenci Adı Soyadı")
+            <br />
+            <div class="col-md-5">
+                @Html.DropDownListFor(model => model.StudentID, (List<SelectListItem>)ViewBag.Data2)
+            </div>
+        </div>
+
+
+        <div class="from-group">
+            @Html.LabelFor(model => model.BookID, "Kitap Adı")
+            <br/>
+            <div class="row-cols-4">
+                @Html.DropDownListFor(x => x.BookID, (List<SelectListItem>)ViewBag.data)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PickUpDate, "Veriliş Tarihi")
+            <br/>
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.PickUpDate, new { htmlattributes = new { @class = "form control", type = "date" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DueDate, "Son Teslim Tarihi")
+            <br/>
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.DueDate, new { htmlattributes = new { @class = "form control", type = "date" } })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ReturnDate, "Teslim Alınan Tarih")
+            <br/>
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.ReturnDate, new { htmlattributes = new { @class = "form control", type = "date" } })
+
+            </div>
+        </div>
+
+    <br />
+
+        <div class="form-group">
+
+            <input type="submit" value="Ekle" class="btn btn-success" />
+            @Html.ActionLink("Geri Dön", "Index", null, new { @class = "btn btn-secondary" })
+        </div>
+
+
+
+
+
+
+
+
+
+    </div> //horizontalin kapanışı 
+}

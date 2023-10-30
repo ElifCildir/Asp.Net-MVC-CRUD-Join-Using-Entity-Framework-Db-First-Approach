@@ -1,0 +1,72 @@
+﻿@model WebApplicationLibrary.Models.Student
+
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Öğrenci Ekle</h2>
+<hr />
+
+@using(Html.BeginForm())
+            { 
+               <div class="form-horizontal">
+
+                   <div class="form-group">
+                       @Html.LabelFor(model => model.NameSurname, "Adı Soyadı")
+                       <div class="col-md-4">
+                           @Html.EditorFor(model => model.NameSurname, new { @class = "form-control" })
+                       </div>
+                   </div>
+
+
+                   <div class="form-group">
+                       @Html.LabelFor(model => model.DateOfBirth, "Doğum Tarihi")
+                       <div class="col-md-2">
+                           @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                       </div>
+                   </div>
+
+                   <div class="radio">
+                       @Html.LabelFor(model => model.Gender, "Cinsiyet")
+                       <div class="col-md-5">
+                           <label>
+                               @Html.RadioButtonFor(model => model.Gender, true) Kadın
+                           </label>
+                           <label>
+                               @Html.RadioButtonFor(model => model.Gender, false) Erkek
+                           </label>
+                       </div>
+                   </div>
+
+
+                   <div class="form-group">
+                       @Html.LabelFor(model => model.Class, "Sınıf")
+                       <div class="col-md-4">
+                           @Html.EditorFor(model => model.Class, new { @class = "form-control" })
+                       </div>
+                   </div>
+
+                   <div class="form-group">
+                       @Html.LabelFor(model => model.Address, "Adres")
+                       <div class="col-md-4">
+                           @Html.EditorFor(model => model.Address, new { @class = "form-control" })
+                       </div>
+                   </div>
+
+                   <div class="form-group">
+                       @Html.LabelFor(model => model.Phone, "Telefon")
+                       <div class="col-md-4">
+                           @Html.EditorFor(model => model.Phone, new { @class = "form-control" })
+                       </div>
+                   </div>
+
+               </div>
+
+               <br />
+               <input type="submit" value="Ekle" class="btn btn-success" />
+               @Html.ActionLink("Geri Dön","Index",null, new {@class="btn btn-secondary"})
+
+            }
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6c123db691a64caabd33d1f5a11a8001" Name="Diagram1">
+        <EntityTypeShape EntityType="LibraryModel.Activity" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="LibraryModel.Author" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="LibraryModel.Book" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="LibraryModel.Publisher" Width="1.5" PointX="0.75" PointY="1.5" />
+        <EntityTypeShape EntityType="LibraryModel.Student" Width="1.5" PointX="3" PointY="5" />
+        <EntityTypeShape EntityType="LibraryModel.sysdiagram" Width="1.5" PointX="5.75" PointY="4.75" />
+        <AssociationConnector Association="LibraryModel.FK_Activities_Books" />
+        <AssociationConnector Association="LibraryModel.FK_Activities_Students" />
+        <AssociationConnector Association="LibraryModel.FK_Books_Authors" />
+        <AssociationConnector Association="LibraryModel.FK_Books_Publishers" />
+        <EntityTypeShape EntityType="LibraryModel.Userr" Width="1.5" PointX="7.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,33 @@
+﻿@model WebApplicationLibrary.Models.Publisher
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Yayınevi Sil</h2>
+<hr />
+
+<h3>Bu Yayınevini Silmek İstediğinizden Emin misiniz?</h3>
+<div>
+  
+    <dl class="dl-horizontal">
+        <dt>
+             Yayınevi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PublisherName)
+        </dd>
+
+    </dl>
+    <br />
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            @Html.ActionLink("Geri Dön", "Index", null, new {@class="btn btn-secondary"})
+        </div>
+    }
+</div>
